@@ -1,0 +1,40 @@
+{
+  "name": "cute-string-util",
+  "version": "0.0.3",
+  "description": "Typescript simple string utilities",
+  "scripts": {
+    "test": "mocha --reporter spec",
+    "build": "tsc",
+    "prepare": "rm -rf dist && tsc"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/makesomesparks/cute-string-util.git"
+  },
+  "keywords": [
+    "typescript",
+    "string",
+    "CuteString",
+    "stringutils",
+    "string-utils",
+    "string-util",
+    "cute-string-util"
+  ],
+  "author": "Taegyun Ko <flint@balsa.to>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/makesomesparks/cute-string-util/issues"
+  },
+  "homepage": "https://github.com/makesomesparks/cute-string-util#readme",
+  "devDependencies": {
+    "@types/pluralize": "^0.0.29",
+    "chai": "^4.3.4",
+    "mocha": "^9.1.3",
+    "typescript": "^4.6.0-dev.20220112"
+  },
+  "dependencies": {
+    "pluralize": "^8.0.0"
+  }
+}
