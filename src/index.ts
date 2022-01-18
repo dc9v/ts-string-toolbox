@@ -1,89 +1,89 @@
-export default class CuteString
+const CuteString =
 {
-  regex =
-    {
-      // TLDs, ccTLDs, handshake(HNS)
-      email: /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{1,30}$/,
-
-      // Start with [a-zA-Z0-9], allow [a-zA-Z0-9-_] 4 more or digits )
-      username: /^(?=.*[a-zA-Z0-9])[a-zA-Z0-9-_]{4,29}/,
-
-      // linux filename rules
-      filename: /^[^<>:;,?"*|/]+$/,
-
-      // over 7 digits
-      password: /((?!\t\n\r).)[a-zA-Z0-9 .,/<>?;:"'`!@#$%^&*()\[\]{}_+=|\\-]{7,}/,
-
-      // over 8 digits, must contain lower case, upper case, special character, number
-      strongPassword: /(?=.*[A-Z])(?=.*[.,/<>?;:"'`!@#$%^&*()\[\]{}_+=|\\-])(?=.*[0-9])(?=.*[0-9])(?=.*[a-z])((?!\t\n\r).)[a-zA-Z0-9 .,/<>?;:"'`!@#$%^&*()\[\]{}_+=|\\-]{7,}/,
-
-      // Number format [-] [0-9] [.] [0-9]
-      numeric: /^[-]{0,1}[\d]*[.]{0,1}[\d]+$/,
-
-      // only alphabets
-      alphabet: /^[a-zA-Z]+$/,
-
-      // only numbers
-      number: /^[0-9]+$/,
-    }
-
-  isVaildEmail = (email: string): boolean =>
+  regex:
   {
-    return this.regex.email.test(email);
-  };
+    // TLDs, ccTLDs, handshake(HNS)
+    email: /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{1,30}$/,
 
-  isVaildUsername = (username: string): boolean =>
+    // Start with [a-zA-Z0-9], allow [a-zA-Z0-9-_] 4 more or digits )
+    username: /^(?=.*[a-zA-Z0-9])[a-zA-Z0-9-_]{4,29}/,
+
+    // linux filename rules
+    filename: /^[^<>:;,?"*|/]+$/,
+
+    // over 7 digits
+    password: /((?!\t\n\r).)[a-zA-Z0-9 .,/<>?;:"'`!@#$%^&*()\[\]{}_+=|\\-]{7,}/,
+
+    // over 8 digits, must contain lower case, upper case, special character, number
+    strongPassword: /(?=.*[A-Z])(?=.*[.,/<>?;:"'`!@#$%^&*()\[\]{}_+=|\\-])(?=.*[0-9])(?=.*[0-9])(?=.*[a-z])((?!\t\n\r).)[a-zA-Z0-9 .,/<>?;:"'`!@#$%^&*()\[\]{}_+=|\\-]{7,}/,
+
+    // Number format [-] [0-9] [.] [0-9]
+    numeric: /^[-]{0,1}[\d]*[.]{0,1}[\d]+$/,
+
+    // only alphabets
+    alphabet: /^[a-zA-Z]+$/,
+
+    // only numbers
+    number: /^[0-9]+$/,
+  },
+
+  isVaildEmail: (email: string): boolean =>
   {
-    return this.regex.username.test(username);
-  };
+    return CuteString.regex.email.test(email);
+  },
 
-  isVaildFilename = (filename: string): boolean =>
+  isVaildUsername: (username: string): boolean =>
   {
-    return this.regex.filename.test(filename);
-  };
+    return CuteString.regex.username.test(username);
+  },
 
-  isVaildPassword = (password: string, useStrong: boolean = false): boolean =>
+  isVaildFilename: (filename: string): boolean =>
+  {
+    return CuteString.regex.filename.test(filename);
+  },
+
+  isVaildPassword: (password: string, useStrong: boolean = false): boolean =>
   {
     if (useStrong)
     {
-      return this.regex.strongPassword.test(password);
+      return CuteString.regex.strongPassword.test(password);
     }
 
-    return this.regex.password.test(password);
-  };
+    return CuteString.regex.password.test(password);
+  },
 
-  camelToSnake = (src: string) =>
+  camelToSnake: (src: string) =>
   {
     return src.replace(/[a-z]{1}[A-Z]/g, o => `${o.charAt(0).toLowerCase()}_${o.charAt(1).toLowerCase()}`);
-  };
+  },
 
-  snakeToCamel = (src: string) =>
+  snakeToCamel: (src: string) =>
   {
     return src.replace(/[a-zA-Z]{1}[_]{1}[a-zA-Z]{1}/g, o => `${o.charAt(0).toLowerCase()}${o.charAt(2).toUpperCase()}`);
-  };
+  },
 
-  numberFormat = (src: string | number) =>
+  numberFormat: (src: string | number) =>
   {
-    return this.valueOf(src).replace(/(\d)(?=(\d{3})+\.)/g, o => `${o},`);
-  };
+    return CuteString.valueOf(src).replace(/(\d)(?=(\d{3})+\.)/g, o => `${o},`);
+  },
 
-  onlyNumbers = (src: any) =>
+  onlyNumbers: (src: any) =>
   {
-    return this.valueOf(src).replace(/[^\d]/g, "");
-  };
+    return CuteString.valueOf(src).replace(/[^\d]/g, "");
+  },
 
-  onlyAlphabets = (src: string) =>
+  onlyAlphabets: (src: string) =>
   {
     return src.replace(/[^a-zA-Z]/g, "");
-  };
+  },
 
-  lpad = (src: any, length: number, pad: number | bigint | string = " ") => this.pad("left", src, length, pad);
+  lpad: (src: any, length: number, pad: number | bigint | string = " ") => CuteString.pad("left", src, length, pad),
 
-  rpad = (src: any, length: number, pad: number | bigint | string = " ") => this.pad("right", src, length, pad);
+  rpad: (src: any, length: number, pad: number | bigint | string = " ") => CuteString.pad("right", src, length, pad),
 
-  pad = (direction: "left" | "right" | "l" | "r", src: number | bigint | string, length: number, pad: number | bigint | string = " ") =>
+  pad: (direction: "left" | "right" | "l" | "r", src: number | bigint | string, length: number, pad: number | bigint | string = " ") =>
   {
-    src = this.valueOf(src).trim();
+    src = CuteString.valueOf(src).trim();
 
     while (src.length < length)
     {
@@ -98,9 +98,9 @@ export default class CuteString
     }
 
     return src;
-  }
+  },
 
-  valueOf = (src: any): string =>
+  valueOf: (src: any): string =>
   {
     switch (typeof src)
     {
@@ -127,9 +127,9 @@ export default class CuteString
       case "undefined":
         return '';
     }
-  }
+  },
 
-  toNumber = (src: any, removeNotNumberExpression: boolean = true): number =>
+  toNumber: (src: any, removeNotNumberExpression: boolean = true): number =>
   {
     let numeric = /[-]{0,1}[\d]*[.]{0,1}[\d]+/;
 
@@ -149,31 +149,32 @@ export default class CuteString
       let n = Number(res[0]);
       return isNaN(n) ? 0 : n;
     }
-  }
+  },
 
-  removeSpace = (src: any): string =>
+  removeSpace: (src: any): string =>
   {
-    return this.valueOf(src).replace(/(\s*)/g, "");
-  }
+    return CuteString.valueOf(src).replace(/(\s*)/g, "");
+  },
 
-  isEmpty = (src: any): boolean =>
-  {
-    if (typeof src === 'undefined' || src === null)
-    {
-      return true;
-    }
-
-    return this.valueOf(src).length == 0 ? true : false;
-  }
-
-  isBlank = (src: any): boolean =>
+  isEmpty: (src: any): boolean =>
   {
     if (typeof src === 'undefined' || src === null)
     {
       return true;
     }
 
-    return this.removeSpace(this.valueOf(src)).length == 0 ? true : false;
-  }
-}
+    return CuteString.valueOf(src).length == 0 ? true : false;
+  },
 
+  isBlank: (src: any): boolean =>
+  {
+    if (typeof src === 'undefined' || src === null)
+    {
+      return true;
+    }
+
+    return CuteString.removeSpace(CuteString.valueOf(src)).length == 0 ? true : false;
+  }
+};
+
+export default CuteString;

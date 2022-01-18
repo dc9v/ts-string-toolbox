@@ -1,8 +1,5 @@
 {
     "compilerOptions": {
-        "target": "ES3",
-        "module": "CommonJS",
-        "declaration": true,
         "outDir": "./dist",
         "baseUrl": ".",
         "paths": {
@@ -10,6 +7,8 @@
                 "src/*"
             ]
         },
-        "strict": false,
+        "removeComments": true,
+        "target": "ES5",
+        "module": "CommonJS"
     }
 }
