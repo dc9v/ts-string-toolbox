@@ -1,6 +1,6 @@
 {
   "name": "cute-string-util",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Typescript simple string utilities",
   "scripts": {
     "test": "mocha --reporter spec",
