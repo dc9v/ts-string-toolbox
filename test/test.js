@@ -1,9 +1,7 @@
 'use strict';
 
 let expect = require('chai').expect;
-let index = require('../dist/index.js');
-
-let CuteString = new index['default'];
+let CuteString = require("../dist/index").default;
 
 describe('get Functions index', () =>
 {
