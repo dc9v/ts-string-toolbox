@@ -1,15 +1,13 @@
 # cute-string-util
 
-![cat-writer](./images/cat-writer.png)
-
-_`image from: https://openclipart.org/detail/220229/writing-cat`_
-
-Call me `CuteString`
-
 Frequently used string regular expressions and utilities.
 
+![cat-writer](./images/cat-writer.png)
 
-## Start
+_`image-from: https://openclipart.org/detail/220229/writing-cat`_
+
+
+## Get start
 
 ```sh
 npm i cute-string-util
