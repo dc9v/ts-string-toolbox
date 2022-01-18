@@ -3,23 +3,33 @@
 
 ![cat-writer](./images/cat-writer.png)
 
-Frequently used string regular expression and utilities.
+Frequently used string regular expressions and utilities.
 
 
-## Start
+## How to use
 
+### 1
 ```sh
 npm i cute-string-util
 ```
 
 ```ts
 import CuteString from 'cute-string-util'
-
 console.log( CuteString.onlyNumbers('1hello2world3!') )
 // 123
 ```
 
-## Regex
+### 2
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/cute-string-util"></script>
+<script>
+  let Utils = CuteString;
+  CuteString.onlyNumbers('1hello2world3!')
+</script>
+```
+
+## Regular Expressions
 
 - email
 
@@ -96,7 +106,7 @@ console.log( CuteString.onlyNumbers('1hello2world3!') )
   // true
   ```
 
-## functions
+## Functions
 
 - `isVaildEmail(email: string): boolean`
 
