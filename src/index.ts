@@ -1,7 +1,6 @@
 const CuteString =
 {
-  regex:
-  {
+  regex: {
     // TLDs, ccTLDs, handshake(HNS)
     email: /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{1,30}$/,
 
@@ -24,25 +23,25 @@ const CuteString =
     alphabet: /^[a-zA-Z]+$/,
 
     // only numbers
-    number: /^[0-9]+$/,
+    number: /^[0-9]+$/
   },
 
-  isVaildEmail: (email: string): boolean =>
+  isVaildEmail(email: string): boolean
   {
     return CuteString.regex.email.test(email);
   },
 
-  isVaildUsername: (username: string): boolean =>
+  isVaildUsername(username: string): boolean
   {
     return CuteString.regex.username.test(username);
   },
 
-  isVaildFilename: (filename: string): boolean =>
+  isVaildFilename(filename: string): boolean
   {
     return CuteString.regex.filename.test(filename);
   },
 
-  isVaildPassword: (password: string, useStrong: boolean = false): boolean =>
+  isVaildPassword(password: string, useStrong: boolean = false): boolean
   {
     if (useStrong)
     {
@@ -52,36 +51,36 @@ const CuteString =
     return CuteString.regex.password.test(password);
   },
 
-  camelToSnake: (src: string) =>
+  camelToSnake(src: string): string
   {
-    return src.replace(/[a-z]{1}[A-Z]/g, o => `${o.charAt(0).toLowerCase()}_${o.charAt(1).toLowerCase()}`);
+    return src.replace(/[a-z]{1}[A-Z]/g, o => `${ o.charAt(0).toLowerCase() }_${ o.charAt(1).toLowerCase() }`);
   },
 
-  snakeToCamel: (src: string) =>
+  snakeToCamel(src: string): string
   {
-    return src.replace(/[a-zA-Z]{1}[_]{1}[a-zA-Z]{1}/g, o => `${o.charAt(0).toLowerCase()}${o.charAt(2).toUpperCase()}`);
+    return src.replace(/[a-zA-Z]{1}[_]{1}[a-zA-Z]{1}/g, o => `${ o.charAt(0).toLowerCase() }${ o.charAt(2).toUpperCase() }`);
   },
 
-  numberFormat: (src: string | number) =>
+  numberFormat(src: string | number): string
   {
-    return CuteString.valueOf(src).replace(/(\d)(?=(\d{3})+\.)/g, o => `${o},`);
+    return CuteString.valueOf(src).replace(/(\d)(?=(\d{3})+\.)/g, o => `${ o },`);
   },
 
-  onlyNumbers: (src: any) =>
+  onlyNumbers(src: any): string
   {
     return CuteString.valueOf(src).replace(/[^\d]/g, "");
   },
 
-  onlyAlphabets: (src: string) =>
+  onlyAlphabets(src: string): string
   {
     return src.replace(/[^a-zA-Z]/g, "");
   },
 
-  lpad: (src: any, length: number, pad: number | bigint | string = " ") => CuteString.pad("left", src, length, pad),
+  lpad(src: any, length: number, pad: number | bigint | string = " "): string { return CuteString.pad("left", src, length, pad); },
 
-  rpad: (src: any, length: number, pad: number | bigint | string = " ") => CuteString.pad("right", src, length, pad),
+  rpad(src: any, length: number, pad: number | bigint | string = " "): string { return CuteString.pad("right", src, length, pad); },
 
-  pad: (direction: "left" | "right" | "l" | "r", src: number | bigint | string, length: number, pad: number | bigint | string = " ") =>
+  pad(direction: "left" | "right" | "l" | "r", src: number | bigint | string, length: number, pad: number | bigint | string = " "): string
   {
     src = CuteString.valueOf(src).trim();
 
@@ -100,7 +99,7 @@ const CuteString =
     return src;
   },
 
-  valueOf: (src: any): string =>
+  valueOf(src: any): string
   {
     switch (typeof src)
     {
@@ -129,7 +128,7 @@ const CuteString =
     }
   },
 
-  toNumber: (src: any, removeNotNumberExpression: boolean = true): number =>
+  toNumber(src: any, removeNotNumberExpression: boolean = true): number
   {
     let numeric = /[-]{0,1}[\d]*[.]{0,1}[\d]+/;
 
@@ -146,17 +145,17 @@ const CuteString =
     }
     else
     {
-      let n = Number(res[0]);
+      let n = Number(res[ 0 ]);
       return isNaN(n) ? 0 : n;
     }
   },
 
-  removeSpace: (src: any): string =>
+  removeSpace(src: any): string
   {
     return CuteString.valueOf(src).replace(/(\s*)/g, "");
   },
 
-  isEmpty: (src: any): boolean =>
+  isEmpty(src: any): boolean
   {
     if (typeof src === 'undefined' || src === null)
     {
@@ -166,7 +165,7 @@ const CuteString =
     return CuteString.valueOf(src).length == 0 ? true : false;
   },
 
-  isBlank: (src: any): boolean =>
+  isBlank(src: any): boolean
   {
     if (typeof src === 'undefined' || src === null)
     {
@@ -177,4 +176,4 @@ const CuteString =
   }
 };
 
-export default CuteString;
+export { CuteString as default };
