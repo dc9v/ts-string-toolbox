@@ -173,6 +173,13 @@ const CuteString =
       }
 
       return CuteString.removeSpace(CuteString.valueOf(src)).length == 0 ? true : false;
+   },
+
+   wildcardMatch(pattern: string, src: string): boolean
+   {
+      const reg = (src: string) => src.replace(/([.*+?^=!:${}()|\[\]\/\\])/g, "\\$1");
+
+      return new RegExp("^" + pattern.split("*").map(reg).join(".*") + "$").test(src);
    }
 };
 
