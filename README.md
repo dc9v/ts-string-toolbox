@@ -14,7 +14,7 @@ npm i string-toolbox
 ```
 
 ```ts
-import StringToolbox from 'stringtoolbox'
+import StringToolbox from 'string-toolbox'
 console.log( StringToolbox.onlyNumbers('1hello2world3!') )
 // 123
 ```
