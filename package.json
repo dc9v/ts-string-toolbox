@@ -1,7 +1,7 @@
 {
-  "name": "cute-string-util",
+  "name": "string-toolbox",
   "version": "0.0.9",
-  "description": "Typescript simple string utilities",
+  "description": "Useful String toolbox",
   "scripts": {
     "test": "mocha --reporter spec",
     "build": "tsc",
@@ -11,22 +11,22 @@
   "types": "dist/index.d.ts",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/makesomesparks/cute-string-util.git"
+    "url": "git+https://github.com/makesomesparks/ts-string-toolbox.git"
   },
   "keywords": [
     "typescript",
     "string",
-    "CuteString",
     "stringutil",
     "string-util",
-    "cute-string-util"
+    "useful regex",
+    "js useful regex"
   ],
   "author": "Taegyun Ko <dev@balsa.to>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/makesomesparks/cute-string-util/issues"
+    "url": "https://github.com/makesomesparks/ts-string-toolbox/issues"
   },
-  "homepage": "https://github.com/makesomesparks/cute-string-util#readme",
+  "homepage": "https://github.com/makesomesparks/ts-string-toolbox#readme",
   "devDependencies": {
     "chai": "^4.3.4",
     "mocha": "^9.1.3",

@@ -1,2 +1,2 @@
-import CuteStringUtil from './cute';
-export { CuteStringUtil as default };
+import StringToolbox from './src/StringToolbox';
+export { StringToolbox as default };

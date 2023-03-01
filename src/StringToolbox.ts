@@ -1,4 +1,4 @@
-const CuteString =
+const StringToolbox =
 {
    regex: {
       // TLDs, ccTLDs, handshake(HNS)
@@ -28,27 +28,27 @@ const CuteString =
 
    isVaildEmail(email: string): boolean
    {
-      return CuteString.regex.email.test(email);
+      return StringToolbox.regex.email.test(email);
    },
 
    isVaildUsername(username: string): boolean
    {
-      return CuteString.regex.username.test(username);
+      return StringToolbox.regex.username.test(username);
    },
 
    isVaildFilename(filename: string): boolean
    {
-      return CuteString.regex.filename.test(filename);
+      return StringToolbox.regex.filename.test(filename);
    },
 
    isVaildPassword(password: string, useStrong: boolean = false): boolean
    {
       if (useStrong)
       {
-         return CuteString.regex.strongPassword.test(password);
+         return StringToolbox.regex.strongPassword.test(password);
       }
 
-      return CuteString.regex.password.test(password);
+      return StringToolbox.regex.password.test(password);
    },
 
    camelToSnake(src: string): string
@@ -63,12 +63,12 @@ const CuteString =
 
    numberFormat(src: string | number): string
    {
-      return CuteString.valueOf(src).replace(/(\d)(?=(\d{3})+\.)/g, o => `${ o },`);
+      return StringToolbox.valueOf(src).replace(/(\d)(?=(\d{3})+\.)/g, o => `${ o },`);
    },
 
    onlyNumbers(src: any): string
    {
-      return CuteString.valueOf(src).replace(/[^\d]/g, "");
+      return StringToolbox.valueOf(src).replace(/[^\d]/g, "");
    },
 
    onlyAlphabets(src: string): string
@@ -76,13 +76,13 @@ const CuteString =
       return src.replace(/[^a-zA-Z]/g, "");
    },
 
-   lpad(src: any, length: number, pad: number | bigint | string = " "): string { return CuteString.pad("left", src, length, pad); },
+   lpad(src: any, length: number, pad: number | bigint | string = " "): string { return StringToolbox.pad("left", src, length, pad); },
 
-   rpad(src: any, length: number, pad: number | bigint | string = " "): string { return CuteString.pad("right", src, length, pad); },
+   rpad(src: any, length: number, pad: number | bigint | string = " "): string { return StringToolbox.pad("right", src, length, pad); },
 
    pad(direction: "left" | "right" | "l" | "r", src: number | bigint | string, length: number, pad: number | bigint | string = " "): string
    {
-      src = CuteString.valueOf(src).trim();
+      src = StringToolbox.valueOf(src).trim();
 
       while (src.length < length)
       {
@@ -152,7 +152,7 @@ const CuteString =
 
    removeSpace(src: any): string
    {
-      return CuteString.valueOf(src).replace(/(\s*)/g, "");
+      return StringToolbox.valueOf(src).replace(/(\s*)/g, "");
    },
 
    isEmpty(src: any): boolean
@@ -162,7 +162,7 @@ const CuteString =
          return true;
       }
 
-      return CuteString.valueOf(src).length == 0 ? true : false;
+      return StringToolbox.valueOf(src).length == 0 ? true : false;
    },
 
    isBlank(src: any): boolean
@@ -172,7 +172,7 @@ const CuteString =
          return true;
       }
 
-      return CuteString.removeSpace(CuteString.valueOf(src)).length == 0 ? true : false;
+      return StringToolbox.removeSpace(StringToolbox.valueOf(src)).length == 0 ? true : false;
    },
 
    wildcardMatch(pattern: string, src: string): boolean
@@ -183,4 +183,4 @@ const CuteString =
    }
 };
 
-export { CuteString as default };
+export { StringToolbox as default };
