@@ -1,6 +1,6 @@
 {
   "name": "string-toolbox",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "Useful String toolbox",
   "scripts": {
     "test": "mocha --reporter spec",
