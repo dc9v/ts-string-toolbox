@@ -10,7 +10,7 @@ _`image-from: https://openclipart.org/detail/220229/writing-cat`_
 ## Get start
 
 ```sh
-npm i StringToolbox
+npm i string-toolbox
 ```
 
 ```ts
